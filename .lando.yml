@@ -1,0 +1,18 @@
+name: verite
+recipe: laravel
+config:
+  webroot: public
+
+# Stuff we are adding on top of the laravel recipe.
+database: mariadb:10.1
+
+xdebug: true
+
+services:
+  appserver:
+    build:
+      - "cd $LANDO_MOUNT && composer install"
+  node:
+    type: node:6.10
+    build:
+     - "cd $LANDO_MOUNT && npm install"
