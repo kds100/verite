@@ -16,3 +16,11 @@ services:
     type: node:6.10
     build:
      - "cd $LANDO_MOUNT && npm install"
+
+tooling:
+  node:
+    service: node
+  npm:
+    service: node
+  gulp:
+    service: node
