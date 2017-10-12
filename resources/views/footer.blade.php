@@ -1,3 +1,3 @@
 <footer class="verite-footer">
-Verite 2017
+Verité 2017
 </footer>
