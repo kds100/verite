@@ -2,11 +2,12 @@ name: verite
 recipe: laravel
 config:
   webroot: public
+  via: nginx
 
-# Stuff we are adding on top of the laravel recipe.
-database: mariadb:10.1
+  # Stuff we are adding on top of the laravel recipe.
+  database: mariadb:10.1
 
-xdebug: true
+  xdebug: true
 
 services:
   appserver:
@@ -15,7 +16,7 @@ services:
   node:
     type: node:6.10
     build:
-     - "cd $LANDO_MOUNT && npm install"
+      - "cd $LANDO_MOUNT && npm install"
 
 tooling:
   node:
