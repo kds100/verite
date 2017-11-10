@@ -1,4 +1,7 @@
-.verite-header {
-  background-color: #000;
+.navbar-header {
+  background-color: #fff;
   color: #fff;
+  .navbar-brand {
+    padding: 0;
+  }
 }
