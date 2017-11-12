@@ -1,23 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+<ul class="collection with-header">
+    <li class="collection-header">
+        <h2 class="flow-text">Recent Surveys
+            <span style="float:right;">
+            </span>
+        </h2>
+    </li>
+    @forelse ($surveys as $survey)
+      <li class="collection-item">
+        <div>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+            <a href="survey/view/{{ $survey->id }}" title="Take Survey" class="secondary-content"><i class="material-icons">send</i></a>
+            <a href="survey/{{ $survey->id }}" title="Edit Survey" class="secondary-content"><i class="material-icons">edit</i></a>
+            <a href="survey/answers/{{ $survey->id }}" title="View Survey Answers" class="secondary-content"><i class="material-icons">textsms</i></a>
         </div>
-    </div>
-</div>
-@endsection
+        </li>
+    @empty
+        <p class="flow-text center-align">Nothing to show</p>
+    @endforelse
+    </ul>
+
+@stop
