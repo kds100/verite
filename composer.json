@@ -53,8 +53,7 @@
         ],
         "test": [
             "./vendor/bin/phplint --no-cache",
-            "./vendor/bin/phpcs --standard=PSR2 app",
-            "php artisan dusk"
+            "./vendor/bin/phpcs --standard=PSR2 app"
         ]
     },
     "config": {
