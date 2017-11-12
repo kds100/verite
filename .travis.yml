@@ -1,0 +1,27 @@
+language: php
+php:
+  - '7.0'
+services:
+  - docker
+
+before_install:
+
+  # Add any before_install ops
+
+install:
+
+  # Install composer deps
+  - composer install
+
+  # Set up testing infrastructure
+  - cp .env.example .env
+  - php artisan key:generate
+
+script:
+
+  # Run phpcs, phpunit and phpling
+  - composer test
+
+after_success:
+
+  # Set any after_success ops here
