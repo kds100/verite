@@ -44,19 +44,23 @@
                       </div>
                     </div>
                     @elseif($question->question_type === 'radio')
-                      @foreach($question->option_name as $key=>$value)
-                        <p style="margin:0px; padding:0px;">
-                          <input type="radio" id="{{ $key }}" />
-                          <label for="{{ $key }}">{{ $value }}</label>
-                        </p>
-                      @endforeach
+                      @if ($question->option_name)
+                        @foreach($question->option_name as $key=>$value)
+                          <p style="margin:0px; padding:0px;">
+                            <input type="radio" id="{{ $key }}" />
+                            <label for="{{ $key }}">{{ $value }}</label>
+                          </p>
+                        @endforeach
+                      @endif
                     @elseif($question->question_type === 'checkbox')
-                      @foreach($question->option_name as $key=>$value)
-                      <p style="margin:0px; padding:0px;">
-                        <input type="checkbox" id="{{ $key }}" />
-                        <label for="{{$key}}">{{ $value }}</label>
-                      </p>
-                      @endforeach
+                      @if ($question->option_name)
+                        @foreach($question->option_name as $key=>$value)
+                        <p style="margin:0px; padding:0px;">
+                          <input type="checkbox" id="{{ $key }}" />
+                          <label for="{{$key}}">{{ $value }}</label>
+                        </p>
+                        @endforeach
+                      @endif
                     @endif
                   {!! Form::close() !!}
               </div>
