@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Survey;
+use App\Question;
+use App\Answer;
+use Auth;
 use Illuminate\Http\Request;
 
 class AnswerController extends Controller
