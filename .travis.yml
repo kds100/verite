@@ -1,0 +1,36 @@
+language: php
+php:
+  - '7.1'
+services:
+  - docker
+
+before_install:
+
+  # Add any before_install ops
+
+install:
+
+  # Install composer deps
+  - composer install
+
+  # Set up testing infrastructure
+  - cp .env.example .env
+  - php artisan key:generate
+
+
+before_script:
+
+  # - export DISPLAY=:99.0
+  # - sh -e /etc/init.d/xvfb start
+  # - ./vendor/laravel/dusk/bin/chromedriver-linux &
+  # - cp .env.testing .env
+  # - php artisan serve &
+
+script:
+
+  # Run phpcs, phpunit and phpling
+  - composer test
+
+after_success:
+
+  # Set any after_success ops here
